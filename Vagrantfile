@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppetmaster.vm.provision :shell, :inline => "sudo cp /vagrant/keys/known_hosts /root/.ssh "
     
     # Download and install Puppet Enterprise
-    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://www-dev.wwt.com/puppet/puppet-enterprise-3.7.1-el-6-x86_64.tar.gz -o /dev/null"
+    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://fill-me-in-with-loc-to-pe-bits"
     puppetmaster.vm.provision :shell, :inline => "cd /vagrant; tar xzf puppet-enterprise-3.7.1-el-6-x86_64.tar.gz"
     puppetmaster.vm.provision :shell, :inline => "sudo /vagrant/puppet-enterprise-3.7.1-el-6-x86_64/puppet-enterprise-installer -a /vagrant/puppetmaster.answers"
 
