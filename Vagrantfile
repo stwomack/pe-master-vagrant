@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Stop iptables, they're screwing things up
     puppetmaster.vm.provision :shell, :inline => "sudo service iptables stop"
 
-    puppetmaster.vm.provision :shell, :inline => "sudo echo '10.10.10.100  agent-1.wwt.local' >> /etc/hosts"
+    puppetmaster.vm.provision :shell, :inline => "sudo echo '10.10.10.100  agent-1.local' >> /etc/hosts"
 
     puppetmaster.vm.network "private_network", ip: "10.10.10.10"
 
@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppetmaster.vm.provision :shell, :inline => "sudo echo 'sources:' >> /etc/puppetlabs/puppet/r10k.yaml"
     puppetmaster.vm.provision :shell, :inline => "sudo echo '  control:' >> /etc/puppetlabs/puppet/r10k.yaml"
     puppetmaster.vm.provision :shell, :inline => "sudo echo '    basedir: \"etc/puppetlabs/puppet/environments\"' >> /etc/puppetlabs/puppet/r10k.yaml"
-    puppetmaster.vm.provision :shell, :inline => "sudo echo '    remote: \"git@prodgithub01.wwt.com:Operations/wwt_puppet_environments.git\"' >> /etc/puppetlabs/puppet/r10k.yaml"
+    puppetmaster.vm.provision :shell, :inline => "sudo echo '    remote: \"git@your-git-project.git\"' >> /etc/puppetlabs/puppet/r10k.yaml"
 
     # Port forwarding for installer app, bootstrap app, and console app
     puppetmaster.vm.network "forwarded_port", guest: 3000, host: 3001
