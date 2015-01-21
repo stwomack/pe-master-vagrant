@@ -5,7 +5,7 @@ Vagrant project that spins up a puppet master and agent(s) bootstrapped to it
 Instructions
 * Install VirtualBox
 * Install Vagrant
-* <pre><code>git clone git@prodgithub01.wwt.com:Operations/pe-master-vagrant.git</code></pre>
+* <pre><code>git clone https://github.com/stwomack/vagrant-puppet-enterprise-master.git</code></pre>
 * <pre><code>vagrant up</code></pre>
 * View the Enterprise console at https://localhost:4443/
   
