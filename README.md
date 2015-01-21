@@ -6,6 +6,7 @@ Instructions
 * Install VirtualBox
 * Install Vagrant
 * <pre><code>git clone https://github.com/stwomack/vagrant-puppet-enterprise-master.git</code></pre>
+	You'll need to provide the PE installer bits on a downloadable location defined in the Vagrantfile (look at the error, it should point you in the right direction
 * <pre><code>vagrant up</code></pre>
 * View the Enterprise console at https://localhost:4443/
   
