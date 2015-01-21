@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Stop iptables, they're screwing things up
     puppetmaster.vm.provision :shell, :inline => "sudo service iptables stop"
 
-    puppetmaster.vm.provision :shell, :inline => "sudo echo '10.10.10.100  agent-1.local' >> /etc/hosts"
+    puppetmaster.vm.provision :shell, :inline => "sudo echo '10.10.10.100  agent-1.wwt.local' >> /etc/hosts"
 
     puppetmaster.vm.network "private_network", ip: "10.10.10.10"
 
@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppetmaster.vm.provision :shell, :inline => "sudo cp /vagrant/keys/known_hosts /root/.ssh "
     
     # Download and install Puppet Enterprise
-    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://fill-me-in-with-loc-to-pe-bits"
+    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://www-dev.wwt.com/puppet/puppet-enterprise-3.7.1-el-6-x86_64.tar.gz -o /dev/null"
     puppetmaster.vm.provision :shell, :inline => "cd /vagrant; tar xzf puppet-enterprise-3.7.1-el-6-x86_64.tar.gz"
     puppetmaster.vm.provision :shell, :inline => "sudo /vagrant/puppet-enterprise-3.7.1-el-6-x86_64/puppet-enterprise-installer -a /vagrant/puppetmaster.answers"
 
@@ -49,8 +49,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #Configure r10k
     puppetmaster.vm.provision :shell, :inline => "sudo echo 'sources:' >> /etc/puppetlabs/puppet/r10k.yaml"
     puppetmaster.vm.provision :shell, :inline => "sudo echo '  control:' >> /etc/puppetlabs/puppet/r10k.yaml"
-    puppetmaster.vm.provision :shell, :inline => "sudo echo '    basedir: \"etc/puppetlabs/puppet/environments\"' >> /etc/puppetlabs/puppet/r10k.yaml"
-    puppetmaster.vm.provision :shell, :inline => "sudo echo '    remote: \"git@your-git-project.git\"' >> /etc/puppetlabs/puppet/r10k.yaml"
+    puppetmaster.vm.provision :shell, :inline => "sudo echo '    basedir: \"/etc/puppetlabs/puppet/environments\"' >> /etc/puppetlabs/puppet/r10k.yaml"
+    puppetmaster.vm.provision :shell, :inline => "sudo echo '    remote: \"git@prodgithub01.wwt.com:Operations/wwt_puppet_environments.git\"' >> /etc/puppetlabs/puppet/r10k.yaml"
 
     # Port forwarding for installer app, bootstrap app, and console app
     puppetmaster.vm.network "forwarded_port", guest: 3000, host: 3001
