@@ -1,0 +1,4 @@
+sources:
+  control:
+    basedir: "/etc/puppetlabs/puppet/environments"
+    remote: "git@prodgithub01.wwt.com:Operations/wwt_puppet_environments.git"
