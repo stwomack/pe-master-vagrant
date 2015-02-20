@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Stop iptables, they're screwing things up
     puppetmaster.vm.provision :shell, :inline => "sudo service iptables stop"
 
-    puppetmaster.vm.provision :shell, :inline => "sudo echo '10.10.10.100  apache-1.wwt.local' >> /etc/hosts"
+    puppetmaster.vm.provision :shell, :inline => "sudo echo '10.10.10.100  apache-1' >> /etc/hosts"
 
     puppetmaster.vm.network "private_network", ip: "10.10.10.10"
 
@@ -43,7 +43,7 @@ ll
     puppetmaster.vm.provision :shell, :inline => "sudo chmod 700 ~/.ssh/id_rsa "
 
     # Download and install Puppet Enterprise
-    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://www-dev.wwt.com/puppet/puppet-enterprise-3.7.1-el-6-x86_64.tar.gz -o /dev/null"
+    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://bit.ly/1LkfHXx -o /dev/null"
     puppetmaster.vm.provision :shell, :inline => "cd /vagrant; tar xzf puppet-enterprise-3.7.1-el-6-x86_64.tar.gz"
     puppetmaster.vm.provision :shell, :inline => "sudo /vagrant/puppet-enterprise-3.7.1-el-6-x86_64/puppet-enterprise-installer -a /vagrant/files/puppetmaster.answers"
 
@@ -67,7 +67,7 @@ ll
 
   config.vm.define "jenkins-master" do |node|
     node.vm.box = "centos-6.4-x86_64"
-    node.vm.hostname = "jenkins-master.wwt.local"
+    node.vm.hostname = "jenkins-master"
     node.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
     node.vm.box_download_insecure = true
 
@@ -85,14 +85,14 @@ ll
 
   config.vm.define "jenkins-slave" do |node|
     node.vm.box = "centos-6.4-x86_64"
-    node.vm.hostname = "jenkins-slave.wwt.local"
+    node.vm.hostname = "jenkins-slave"
     node.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
     node.vm.box_download_insecure = true
 
     node.vm.network "private_network", ip: "10.10.10.300"
 
     node.vm.provision :shell, :inline => "sudo echo '10.10.10.10  puppetmaster' >> /etc/hosts"
-    node.vm.provision :shell, :inline => "sudo echo '10.10.10.200 jenkins-master.wwt.local' >> /etc/hosts"
+    node.vm.provision :shell, :inline => "sudo echo '10.10.10.200 jenkins-master' >> /etc/hosts"
 
     # Stop iptables, they're screwing things up
     node.vm.provision :shell, :inline => "sudo service iptables stop"
@@ -103,7 +103,7 @@ ll
 
   config.vm.define "apache-1" do |node|
     node.vm.box = "centos-6.4-x86_64"
-    node.vm.hostname = "apache-1.wwt.local"
+    node.vm.hostname = "apache-1"
     node.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20131103.box"
     node.vm.box_download_insecure = true
  
