@@ -5,7 +5,7 @@ Vagrant project that spins up a puppet master and agent(s) bootstrapped to it
 Instructions
 * Install VirtualBox
 * Install Vagrant
-* <pre><code>git clone git@prodgithub01.wwt.com:Operations/pe-master-vagrant.git</code></pre>
+* <pre><code>git clone git@github.com:stwomack/pe-master-vagrant.git</code></pre>
 * 'vagrant up' without arguments creates all 4. To start selected VMs, add them as arguments
 * <pre><code>vagrant up puppetmaster {apache-1} {jenkins-master} {jenkins-slave} </code></pre>
 * View the Enterprise console at https://localhost:4443/
