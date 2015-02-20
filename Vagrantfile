@@ -34,7 +34,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # puppetmaster.vm.provision :shell, :inline => "sudo yum install lsof -y"
     # puppetmaster.vm.provision :shell, :inline => "sudo yum install telnet -y "
     # puppetmaster.vm.provision :shell, :inline => "sudo yum install mlocate -y"
-ll
 
     # Install keys for github
     puppetmaster.vm.provision :shell, :inline => "sudo mkdir /root/.ssh "
