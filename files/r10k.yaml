@@ -1,4 +1,4 @@
 sources:
   control:
     basedir: "/etc/puppetlabs/puppet/environments"
-    remote: "git@prodgithub01.wwt.com:Operations/wwt-puppet-control.git"
+    remote: "PUT_YOUR_CONTROL_REPO_HERE"
