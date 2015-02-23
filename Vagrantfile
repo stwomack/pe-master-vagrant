@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppetmaster.vm.provision :shell, :inline => "sudo chmod 700 ~/.ssh/id_rsa "
 
     # Download and install Puppet Enterprise
-    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget http://bit.ly/1LkfHXx -o /dev/null"
+    puppetmaster.vm.provision :shell, :inline => "cd /vagrant; wget --no-check-certificate http://bit.ly/1LkfHXx -o /dev/null"
     puppetmaster.vm.provision :shell, :inline => "cd /vagrant; tar xzf puppet-enterprise-3.7.1-el-6-x86_64.tar.gz"
     puppetmaster.vm.provision :shell, :inline => "sudo /vagrant/puppet-enterprise-3.7.1-el-6-x86_64/puppet-enterprise-installer -a /vagrant/files/puppetmaster.answers"
 
