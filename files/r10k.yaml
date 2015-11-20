@@ -1,4 +1,8 @@
+---
+# This is a temporary config for inital vagrant builds
+# Once vagrant is up, the pe_r10k classification takes
+# over the r10k setup and configuration file
 sources:
   control:
-    basedir: "/etc/puppetlabs/puppet/environments"
-    remote: "PUT_YOUR_CONTROL_REPO_HERE"
+    basedir: "/etc/puppetlabs/code/environments"
+    remote: "git@prodgithub01.wwt.com:puppetry/wwt-puppet-control.git"
