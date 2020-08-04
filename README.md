@@ -7,7 +7,7 @@ Instructions
 * Install Vagrant. https://www.vagrantup.com/downloads.html
 * Create or Choose a directory for the project
 * Download it
-* <pre><code>git clone git@prodgithub01.wwt.com:puppetry/wwt-pe-master-vagrant.git</code></pre>
+* <pre><code>git clone git@github.com/stwomack/wwt-pe-master-vagrant.git</code></pre>
 * <pre><code>cd wwt-pe-master-vagrant</code></pre>
 * Create a topic branch relative to the body of work.  Example: <pre><code>git checkout -b apache</code></pre>
 * Edit the Vagrantfile and define a config for a development vm.  Example:
